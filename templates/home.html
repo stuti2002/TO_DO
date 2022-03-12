@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}TO-DO{% endblock title %}
+{% block classHome %}active{% endblock classHome %}
+{% block body %}
+{% if tasks %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Congrats!! </strong> Task added successfully !!
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<div class="container mt-3">
+<h1 style= "text-align: center;color: crimson;">Add Your Task Here !!</h1>
+<form action="/" method="POST">
+    {% csrf_token %}
+<div class="mb-3">
+  <label for="title" class="form-label" style="font-weight: bold;">Title</label>
+  <input type="title" class="form-control" id="title" name='title'>
+</div>
+<div class="mb-3">
+  <label for="desc" class="form-label" style="font-weight: bolder;">Description</label>
+  <textarea class="form-control" id="desc" name='desc' rows="3"></textarea>
+</div>
+<button type="Submit" class="btn btn-success">Submit</button>
+</form>
+</div>
+
+
+{% endblock body %}

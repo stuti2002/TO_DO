@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Task |{% endblock title %}
+{% block classTasks %}active{% endblock classTasks %}
+{% block body %}
+<h1 style="text-align: center;color:red;" class="py-3">See Your Task Here !!</h1>
+<div class="container py-3">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">SNo.</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        {% for data in task %}
+        <tbody>
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{data.title}}</td>
+                <td>{{data.desc}}</td>
+                <td><a href="{% url 'delete' data.id%}">Delete</a></td>
+                
+
+            </tr> 
+
+        </tbody>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock body %}
